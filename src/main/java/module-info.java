@@ -10,6 +10,7 @@ module com.example.cvbuilder_2207094 {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires javafx.graphics;
 
     opens com.example.cvbuilder_2207094 to javafx.fxml;
     exports com.example.cvbuilder_2207094;
