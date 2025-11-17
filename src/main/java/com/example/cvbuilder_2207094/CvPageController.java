@@ -137,6 +137,20 @@ public class CvPageController {
         Stage stage = (Stage) submitCv.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("EndPage.fxml"));
         Scene scene = new Scene(loader.load());
+        EndPageController controller = loader.getController();
+        controller.setName(name.getText());
+        controller.setEmail(email.getText());
+        controller.setPhone(phone.getText());
+        controller.setAddress(address.getText());
+        controller.setExam(examtxt.getText());
+        controller.setInstitue(institutetxt.getText());
+        controller.setProject(projecttxt.getText());
+        controller.setResult(resulttxt.getText());
+        controller.setWork(worktxt.getText());
+        controller.setSkills(skilltxt.getText());
+        controller.setSession(sessiontxt.getText());
+        controller.setBoardLbl(boardtxt.getText());
+
         stage.setTitle("End Page");
         stage.setScene(scene);
     }

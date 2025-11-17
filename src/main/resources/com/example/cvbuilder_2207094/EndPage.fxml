@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -35,7 +34,7 @@
                                     <children>
                                         <TitledPane prefHeight="200.0" prefWidth="200.0" text="Exam">
                                  <content>
-                                    <Label fx:id="examLbl" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label" />
+                                    <Label fx:id="examLbl" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="exam name here" />
                                  </content>
                                         </TitledPane>
                                     </children>
@@ -44,7 +43,7 @@
                                     <children>
                                         <TitledPane prefHeight="200.0" prefWidth="200.0" text="Institute">
                                  <content>
-                                    <Label fx:id="institueLbl" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label" />
+                                    <Label fx:id="institueLbl" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Institute name here" />
                                  </content>
                                         </TitledPane>
                                     </children>
@@ -53,7 +52,7 @@
                                     <children>
                                         <TitledPane prefHeight="200.0" prefWidth="200.0" text="Board/University">
                                  <content>
-                                    <Label fx:id="boardLbl" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label" />
+                                    <Label fx:id="boardLbl" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Board/Univarsity here" />
                                  </content>
                                         </TitledPane>
                                     </children>
@@ -62,7 +61,7 @@
                                     <children>
                                         <TitledPane prefHeight="200.0" prefWidth="200.0" text="session">
                                  <content>
-                                    <Label fx:id="sessionLbl" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label" />
+                                    <Label fx:id="sessionLbl" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="session here" />
                                  </content>
                                         </TitledPane>
                                     </children>
@@ -71,7 +70,7 @@
                                     <children>
                                         <TitledPane prefHeight="200.0" prefWidth="200.0" text="Result">
                                  <content>
-                                    <Label fx:id="resultLbl" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label" />
+                                    <Label fx:id="resultLbl" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Result here" />
                                  </content>
                                         </TitledPane>
                                     </children>
@@ -83,9 +82,9 @@
                                 <Label prefHeight="30.0" prefWidth="152.0" text="Skills:" />
                                 <TitledPane animated="false" prefHeight="86.0" prefWidth="231.0">
                                     <content>
-                                        <AnchorPane fx:id="skillsLbl" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <Label layoutX="140.0" layoutY="23.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label" />
+                                    <Label fx:id="skillsLbl" layoutY="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="62.0" prefWidth="222.0" text="Skills here" />
                                  </children>
                                         </AnchorPane>
                                     </content>
@@ -99,8 +98,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
-                                                <TextArea fx:id="workLbl" layoutX="-3.0" prefHeight="62.0" prefWidth="234.0" />
-                                    <Label layoutX="134.0" layoutY="21.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label" />
+                                    <Label fx:id="workLbl" layoutY="-2.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="62.0" prefWidth="234.0" text="Work Exp here" />
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -114,8 +112,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
-                                                <TextArea fx:id="projectLbl" layoutX="-3.0" prefHeight="62.0" prefWidth="234.0" />
-                                    <Label layoutX="137.0" layoutY="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label" />
+                                    <Label fx:id="projectLbl" layoutY="-2.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="62.0" prefWidth="234.0" text="Project here" />
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -127,10 +124,10 @@
                                 <Font name="System Bold Italic" size="13.0" />
                             </font>
                         </Button>
-                  <Label fx:id="nameLbl" layoutX="200.0" layoutY="52.0" prefHeight="25.0" prefWidth="200.0" text="Label" />
-                  <Label fx:id="emailLbl" layoutX="200.0" layoutY="83.0" prefHeight="25.0" prefWidth="200.0" text="Label" />
-                  <Label fx:id="phoneLbl" layoutX="200.0" layoutY="125.0" prefHeight="25.0" prefWidth="200.0" text="Label" />
-                  <Label fx:id="addressLbl" layoutX="200.0" layoutY="173.0" prefHeight="42.0" prefWidth="200.0" text="Label" />
+                  <Label fx:id="nameLbl" layoutX="200.0" layoutY="52.0" prefHeight="25.0" prefWidth="200.0" text="name here" />
+                  <Label fx:id="emailLbl" layoutX="200.0" layoutY="83.0" prefHeight="25.0" prefWidth="200.0" text="email here" />
+                  <Label fx:id="phoneLbl" layoutX="200.0" layoutY="125.0" prefHeight="25.0" prefWidth="200.0" text="phone num here" />
+                  <Label fx:id="addressLbl" layoutX="200.0" layoutY="173.0" prefHeight="42.0" prefWidth="200.0" text="address here" />
                     </children>
                 </AnchorPane>
             </content>
