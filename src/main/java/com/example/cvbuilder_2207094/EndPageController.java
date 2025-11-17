@@ -7,6 +7,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 public class EndPageController {
 
@@ -51,13 +52,11 @@ public class EndPageController {
 
     @FXML
     void ExitBtn(MouseEvent event) {
+        Stage stage = (Stage) ExitBtn.getScene().getWindow();
+        stage.close();
 
     }
 
-    @FXML
-    void submitCvNext(MouseEvent event) {
-
-    }
 
     @FXML
     public void setName(String name) {
@@ -77,9 +76,6 @@ public class EndPageController {
     public void setSession(String session) {
         sessionLbl.setText(session);
     }
-//    public void setSkills(String skills) {
-//        skillsLbl.se
-//    }
     public void setWork(String work) {
         workLbl.setText(work);
     }

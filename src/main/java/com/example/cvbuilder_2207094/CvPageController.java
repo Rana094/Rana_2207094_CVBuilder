@@ -136,7 +136,9 @@ public class CvPageController {
 
         Stage stage = (Stage) submitCv.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("EndPage.fxml"));
+
         Scene scene = new Scene(loader.load());
+
         EndPageController controller = loader.getController();
         controller.setName(name.getText());
         controller.setEmail(email.getText());

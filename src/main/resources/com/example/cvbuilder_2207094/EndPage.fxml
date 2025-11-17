@@ -15,7 +15,7 @@
     <center>
         <ScrollPane>
             <content>
-                <AnchorPane onMouseClicked="#submitCvNext" prefHeight="675.0" prefWidth="765.0">
+                <AnchorPane prefHeight="675.0" prefWidth="765.0">
                     <children>
                         <Text fill="#f75b5b" layoutX="312.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Curriculum Vitae">
                             <font>
