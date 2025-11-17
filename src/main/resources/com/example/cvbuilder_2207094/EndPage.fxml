@@ -13,7 +13,7 @@
 
 <BorderPane prefHeight="675.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cvbuilder_2207094.EndPageController">
     <center>
-        <ScrollPane>
+        <ScrollPane fitToHeight="true" fitToWidth="true">
             <content>
                 <AnchorPane prefHeight="675.0" prefWidth="765.0">
                     <children>
@@ -43,7 +43,7 @@
                                     <children>
                                         <TitledPane prefHeight="200.0" prefWidth="200.0" text="Institute">
                                  <content>
-                                    <Label fx:id="institueLbl" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Institute name here" />
+                                    <Label fx:id="instituteLbl" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Institute name here" />
                                  </content>
                                         </TitledPane>
                                     </children>
@@ -80,43 +80,31 @@
                         <HBox layoutX="40.0" layoutY="325.0" prefHeight="86.0" prefWidth="382.0">
                             <children>
                                 <Label prefHeight="30.0" prefWidth="152.0" text="Skills:" />
-                                <TitledPane animated="false" prefHeight="86.0" prefWidth="231.0">
-                                    <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <Label fx:id="skillsLbl" layoutY="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="62.0" prefWidth="222.0" text="Skills here" />
-                                 </children>
-                                        </AnchorPane>
-                                    </content>
-                                </TitledPane>
+                        <ScrollPane prefHeight="86.0" prefWidth="230.0">
+                           <content>
+                              <Label fx:id="skillsLbl" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="86.0" prefWidth="231.0" text="Skills here" wrapText="true" />
+                           </content>
+                        </ScrollPane>
                             </children>
                         </HBox>
                         <HBox layoutX="40.0" layoutY="441.0" prefHeight="86.0" prefWidth="382.0">
                             <children>
                                 <Label prefHeight="30.0" prefWidth="152.0" text="Work Experience" />
-                                <TitledPane animated="false" prefHeight="86.0" prefWidth="231.0">
-                                    <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                            <children>
-                                    <Label fx:id="workLbl" layoutY="-2.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="62.0" prefWidth="234.0" text="Work Exp here" />
-                                            </children>
-                                        </AnchorPane>
-                                    </content>
-                                </TitledPane>
+                        <ScrollPane prefHeight="62.0" prefWidth="234.0">
+                           <content>
+                              <Label fx:id="workLbl" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="74.0" prefWidth="234.0" text="Work Exp here" wrapText="true" />
+                           </content>
+                        </ScrollPane>
                             </children>
                         </HBox>
                         <HBox layoutX="40.0" layoutY="541.0" prefHeight="86.0" prefWidth="382.0">
                             <children>
                                 <Label prefHeight="30.0" prefWidth="152.0" text="Projects:" />
-                                <TitledPane animated="false" prefHeight="86.0" prefWidth="231.0">
-                                    <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                            <children>
-                                    <Label fx:id="projectLbl" layoutY="-2.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="62.0" prefWidth="234.0" text="Project here" />
-                                            </children>
-                                        </AnchorPane>
-                                    </content>
-                                </TitledPane>
+                        <ScrollPane prefHeight="62.0" prefWidth="234.0">
+                           <content>
+                              <Label fx:id="projectLbl" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="62.0" prefWidth="234.0" text="Project here" />
+                           </content>
+                        </ScrollPane>
                             </children>
                         </HBox>
                         <Button fx:id="ExitBtn" layoutX="372.0" layoutY="638.0" mnemonicParsing="false" onMouseClicked="#ExitBtn" text="Exit">
@@ -127,7 +115,11 @@
                   <Label fx:id="nameLbl" layoutX="200.0" layoutY="52.0" prefHeight="25.0" prefWidth="200.0" text="name here" />
                   <Label fx:id="emailLbl" layoutX="200.0" layoutY="83.0" prefHeight="25.0" prefWidth="200.0" text="email here" />
                   <Label fx:id="phoneLbl" layoutX="200.0" layoutY="125.0" prefHeight="25.0" prefWidth="200.0" text="phone num here" />
-                  <Label fx:id="addressLbl" layoutX="200.0" layoutY="173.0" prefHeight="42.0" prefWidth="200.0" text="address here" />
+                  <ScrollPane layoutX="199.0" layoutY="173.0">
+                     <content>
+                        <Label fx:id="addressLbl" prefHeight="42.0" prefWidth="200.0" text="address here" />
+                     </content>
+                  </ScrollPane>
                     </children>
                 </AnchorPane>
             </content>

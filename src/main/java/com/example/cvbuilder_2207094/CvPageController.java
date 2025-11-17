@@ -145,13 +145,21 @@ public class CvPageController {
         controller.setPhone(phone.getText());
         controller.setAddress(address.getText());
         controller.setExam(examtxt.getText());
-        controller.setInstitue(institutetxt.getText());
+        controller.setInstitute(institutetxt.getText());
         controller.setProject(projecttxt.getText());
         controller.setResult(resulttxt.getText());
         controller.setWork(worktxt.getText());
         controller.setSkills(skilltxt.getText());
         controller.setSession(sessiontxt.getText());
         controller.setBoardLbl(boardtxt.getText());
+
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText(null);
+            alert.setContentText("CV saved successfully!");
+            alert.showAndWait();
+
 
         stage.setTitle("End Page");
         stage.setScene(scene);

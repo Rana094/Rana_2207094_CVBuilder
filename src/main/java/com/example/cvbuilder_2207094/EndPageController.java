@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 public class EndPageController {
 
+    public Label workLbl1;
     @FXML
     private Button ExitBtn;
 
@@ -27,7 +28,7 @@ public class EndPageController {
     private Label examLbl;
 
     @FXML
-    private Label institueLbl;
+    private Label instituteLbl;
 
     @FXML
     private Label nameLbl;
@@ -57,8 +58,6 @@ public class EndPageController {
 
     }
 
-
-    @FXML
     public void setName(String name) {
         nameLbl.setText(name);
     }
@@ -88,8 +87,8 @@ public class EndPageController {
     public void setExam(String exam) {
         examLbl.setText(exam);
     }
-    public void setInstitue(String institue) {
-        institueLbl.setText(institue);
+    public void setInstitute(String institute) {
+        instituteLbl.setText(institute);
     }
     public void setSkills(String skills) {
         skillsLbl.setText(skills);
