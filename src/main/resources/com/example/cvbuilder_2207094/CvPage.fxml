@@ -126,7 +126,7 @@
                         </TitledPane>
                      </children>
                   </HBox>
-                  <Button fx:id="submitCv" layoutX="372.0" layoutY="638.0" mnemonicParsing="false" onMouseClicked="#submit" text="Subit Your Cv">
+                  <Button fx:id="submitCv" layoutX="372.0" layoutY="638.0" mnemonicParsing="false" onMouseClicked="#submitCvNext" text="Subit Your Cv">
                      <font>
                         <Font name="System Bold Italic" size="13.0" />
                      </font>

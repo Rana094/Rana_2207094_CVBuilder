@@ -1,10 +1,15 @@
 package com.example.cvbuilder_2207094;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class CvPageController {
 
@@ -48,12 +53,19 @@ public class CvPageController {
     private TextArea worktxt;
 
     @FXML
-    void submit(MouseEvent event) {
+    void submit(MouseEvent event) throws IOException {
+
 
     }
 
     @FXML
-    void submitCvNext(MouseEvent event) {
+    void submitCvNext(MouseEvent event) throws IOException {
+        Stage stage = (Stage) submitCv.getScene().getWindow();
+        FXMLLoader  loader = new FXMLLoader(getClass().getResource("EndPage.fxml"));
+        Scene scene =new Scene(loader.load());
+        stage.setTitle("End Page");
+        stage.setScene(scene);
+
 
     }
 
