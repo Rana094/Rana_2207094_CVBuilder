@@ -1,14 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.cvbuilder_2207094.CvPageController"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cvbuilder_2207094.CvPageController">
+   <center>
+      <ScrollPane>
+         <content>
+            <AnchorPane prefHeight="619.0" prefWidth="806.0">
+               <children>
+                  <Text fill="#f75b5b" layoutX="312.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Your Details for CV">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="40.0" layoutY="50.0" prefHeight="29.0" prefWidth="150.0" text="Name:" />
+                  <TextField layoutX="200.0" layoutY="52.0" />
+                  <Label layoutX="40.0" layoutY="81.0" prefHeight="30.0" prefWidth="150.0" text="Email Address:" />
+                  <TextField layoutX="200.0" layoutY="83.0" />
+                  <Label layoutX="40.0" layoutY="123.0" prefHeight="30.0" prefWidth="150.0" text="Phone Number:" />
+                  <TextField layoutX="200.0" layoutY="125.0" />
+                  <Label layoutX="40.0" layoutY="173.0" prefHeight="29.0" prefWidth="150.0" text="Address:" />
+                  <TextArea layoutX="200.0" layoutY="166.0" prefHeight="42.0" prefWidth="178.0" />
+                  <Label layoutX="40.0" layoutY="218.0" prefHeight="30.0" prefWidth="150.0" text="Educational Qualifications:" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <HBox layoutX="196.0" layoutY="225.0" prefHeight="56.0" prefWidth="535.0">
+                     <children>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="83.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="75.0" text="Exam" />
+                              <TextField />
+                           </children>
+                        </VBox>
+                        <VBox prefWidth="149.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="152.0" text="Institute" />
+                              <TextField />
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="136.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="175.0" text="Board/University" />
+                              <TextField />
+                           </children>
+                        </VBox>
+                        <VBox prefWidth="82.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="87.0" text="Result" />
+                              <TextField />
+                           </children>
+                        </VBox>
+                        <VBox prefWidth="75.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="75.0" text="session" />
+                              <TextField />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Button layoutX="723.0" layoutY="247.0" mnemonicParsing="false" text="Add" />
+                  <HBox layoutX="40.0" layoutY="288.0" prefHeight="86.0" prefWidth="382.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="152.0" text="Skills:" />
+                        <TitledPane animated="false" prefHeight="86.0" prefWidth="231.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea layoutX="-3.0" prefHeight="62.0" prefWidth="234.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="40.0" layoutY="404.0" prefHeight="86.0" prefWidth="382.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="152.0" text="Work Experience" />
+                        <TitledPane animated="false" prefHeight="86.0" prefWidth="231.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea layoutX="-3.0" prefHeight="62.0" prefWidth="234.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="40.0" layoutY="504.0" prefHeight="86.0" prefWidth="382.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="152.0" text="Work Experience" />
+                        <TitledPane animated="false" prefHeight="86.0" prefWidth="231.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea layoutX="-3.0" prefHeight="62.0" prefWidth="234.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>
