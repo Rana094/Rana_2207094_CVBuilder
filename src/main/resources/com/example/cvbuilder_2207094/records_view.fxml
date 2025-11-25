@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.cvbuilder_2207094.RecordsViewController">
+
+    <top>
+        <Label text="Saved CV Records"
+               style="-fx-font-size: 24px; -fx-padding: 20px;"
+               BorderPane.alignment="CENTER" />
+    </top>
+
+    <center>
+        <TableView fx:id="recordsTable">
+            <columns>
+                <TableColumn text="Phone" fx:id="phoneCol" prefWidth="200"/>
+                <TableColumn text="Name"   fx:id="nameCol"  prefWidth="250"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox spacing="20" alignment="CENTER" style="-fx-padding: 20px;">
+            <children>
+                <Button text="Load Record" fx:id="loadBtn" onAction="#onLoadRecord"/>
+                <Button text="Delete Record" fx:id="deleteBtn" onAction="#onDeleteRecord"/>
+                <Button text="Back" onAction="#onBackClick"/>
+            </children>
+        </HBox>
+    </bottom>
+
+</BorderPane>
