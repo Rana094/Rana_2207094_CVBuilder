@@ -15,6 +15,8 @@ public class WelComeController {
 
     @FXML
     private Button next;
+    @FXML
+    private Button showRecordsButton;
 
     @FXML
     void GoNext(MouseEvent event) throws IOException {
@@ -28,10 +30,11 @@ public class WelComeController {
 
     @FXML
     void ShowRecords(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("records_view.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        Stage stage = (Stage) showRecordsButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("records_view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("CV Record Page");
+        stage.setScene(scene);
 
     }
 

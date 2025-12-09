@@ -4,6 +4,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.Node;
 import javafx.scene.layout.Region;
+
+import java.lang.foreign.SymbolLookup;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -35,23 +37,26 @@ public class CvPageController {
     @FXML private TextArea skilltxt;
     @FXML private Button submitCv;
     @FXML private TextArea worktxt;
-
     private DatabaseHelper db;
+
+//    private com.yourcompany.cvbuilder.DatabaseHelper db;
 
     @FXML
     public void initialize() {
-        db = new DatabaseHelper("cv_data.db");
-        try {
-            db.initDatabase();
-        } catch (SQLException e) {
-            showError("Database initialization failed: " + e.getMessage());
-            e.printStackTrace();
-        }
+        //String dbPath = System.getProperty("user.dir") + "/myDatabase.db";
+        db = new com.example.cvbuilder_2207094.DatabaseHelper();
+
+//        try {
+//            db.initDatabase();
+//        } catch (SQLException e) {
+//            showError("Database initialization failed: " + e.getMessage());
+//            e.printStackTrace();
+//        }
     }
 
-    @FXML
-    void submit(MouseEvent event) throws IOException {
-    }
+//    @FXML
+//    void submit(MouseEvent event) throws IOException {
+//    }
 
     @FXML
     void submitCvNext(MouseEvent event) throws IOException {
@@ -76,9 +81,9 @@ public class CvPageController {
         if (isBlankTA.test(boardtxt)) { problems.add("Board/University"); }
         if (isBlankTA.test(sessiontxt)) { problems.add("Session"); }
         if (isBlankTA.test(resulttxt)) { problems.add("Result"); }
-        if (isBlankTA.test(skilltxt)) { problems.add("Skills"); }
-        if (isBlankTA.test(worktxt)) { problems.add("Work"); }
-        if (isBlankTA.test(projecttxt)) { problems.add("Project"); }
+//        if (isBlankTA.test(skilltxt)) { problems.add("Skills"); }
+//        if (isBlankTA.test(worktxt)) { problems.add("Work"); }
+//        if (isBlankTA.test(projecttxt)) { problems.add("Project"); }
 
         if (!problems.isEmpty()) {
             StringBuilder sb = new StringBuilder();
@@ -93,31 +98,11 @@ public class CvPageController {
         }
 
         try {
-            DatabaseHelper.CVRecord cv = buildRecordFromForm();
-            try {
-                db.insertCV(cv);
-                showInfo("CV saved successfully for phone: " + cv.phone);
-            } catch (SQLException insertEx) {
-                String msg = insertEx.getMessage() == null ? "" : insertEx.getMessage().toLowerCase();
-                if (msg.contains("constraint") || msg.contains("unique") || msg.contains("primary key")) {
-                    boolean shouldUpdate = confirm("A record with this phone already exists. Do you want to update it?");
-                    if (shouldUpdate) {
-                        try {
-                            db.updateCV(cv);
-                            showInfo("CV updated for phone: " + cv.phone);
-                        } catch (SQLException updateEx) {
-                            showError("Update failed: " + updateEx.getMessage());
-                            updateEx.printStackTrace();
-                            return;
-                        }
-                    } else {
-                    }
-                } else {
-                    showError("Save failed: " + insertEx.getMessage());
-                    insertEx.printStackTrace();
-                    return;
-                }
-            }
+            com.example.cvbuilder_2207094.DatabaseHelper.CVRecord cv = buildRecordFromForm();
+            System.out.println(cv.name);
+            DatabaseHelper.createNewTable();
+            db.insertCV(cv);
+            showInfo("CV saved successfully for phone: " + cv.phone);
         } catch (Exception e) {
             showError("Error while saving CV: " + e.getMessage());
             e.printStackTrace();
@@ -159,81 +144,31 @@ public class CvPageController {
         cv.name = name.getText().trim();
         cv.email = email.getText().trim();
         cv.address = address.getText().trim();
-
-        for (String line : splitLines(examtxt.getText())) {
-            if (line.isBlank()) continue;
-            DatabaseHelper.Education ed = new DatabaseHelper.Education();
-            if (line.contains("|")) {
-                String[] parts = line.split("\\|", -1);
-                ed.exam = safeGet(parts,0);
-                ed.institute = safeGet(parts,1);
-                ed.boardUniversity = safeGet(parts,2);
-                ed.session = safeGet(parts,3);
-                ed.result = safeGet(parts,4);
-            } else {
-                ed.exam = line;
-            }
-            cv.education.add(ed);
-        }
-
-        if (!institutetxt.getText().isBlank() && cv.education.isEmpty()) {
-            DatabaseHelper.Education ed = new DatabaseHelper.Education();
-            ed.exam = examtxt.getText().trim();
-            ed.institute = institutetxt.getText().trim();
-            ed.boardUniversity = boardtxt.getText().trim();
-            ed.session = sessiontxt.getText().trim();
-            ed.result = resulttxt.getText().trim();
-            cv.education.add(ed);
-        }
-
-        for (String s : splitLines(skilltxt.getText())) {
-            if (!s.isBlank()) cv.skills.add(s);
-        }
-
-        for (String line : splitLines(worktxt.getText())) {
-            if (line.isBlank()) continue;
-            DatabaseHelper.Experience ex = new DatabaseHelper.Experience();
-            if (line.contains("|")) {
-                String[] p = line.split("\\|", -1);
-                ex.role = safeGet(p,0);
-                ex.organization = safeGet(p,1);
-                ex.duration = safeGet(p,2);
-                ex.description = safeGet(p,3);
-            } else {
-                ex.role = line;
-            }
-            cv.experience.add(ex);
-        }
-
-        for (String line : splitLines(projecttxt.getText())) {
-            if (line.isBlank()) continue;
-            DatabaseHelper.Project p = new DatabaseHelper.Project();
-            if (line.contains("|")) {
-                String[] a = line.split("\\|", -1);
-                p.title = safeGet(a,0);
-                p.description = safeGet(a,1);
-                p.link = safeGet(a,2);
-            } else {
-                p.title = line;
-            }
-            cv.projects.add(p);
-        }
+        cv.boardUniversity = boardtxt.getText().trim();
+        cv.institute = institutetxt.getText().trim();
+        cv.projects = projecttxt.getText().trim();
+        cv.skills = skilltxt.getText().trim();
+        cv.result = resulttxt.getText().trim();
+        cv.exam = examtxt.getText().trim();
+        cv.institute = institutetxt.getText().trim();
+        cv.workExperience = worktxt.getText().trim();
+        cv.session = sessiontxt.getText().trim();
 
         return cv;
     }
 
-    private String safeGet(String[] arr, int i) {
-        return i < arr.length ? arr[i].trim() : "";
-    }
-
-    private List<String> splitLines(String text) {
-        List<String> out = new ArrayList<>();
-        if (text == null || text.isEmpty()) return out;
-        String[] lines = text.split("\\r?\\n");
-        for (String L: lines) out.add(L.trim());
-        return out;
-    }
-
+//    private String safeGet(String[] arr, int i) {
+//        return i < arr.length ? arr[i].trim() : "";
+//    }
+//
+//    private List<String> splitLines(String text) {
+//        List<String> out = new ArrayList<>();
+//        if (text == null || text.isEmpty()) return out;
+//        String[] lines = text.split("\\r?\\n");
+//        for (String L: lines) out.add(L.trim());
+//        return out;
+//    }
+//
     private void showError(String msg) {
         Alert a = new Alert(Alert.AlertType.ERROR);
         a.setHeaderText(null);
@@ -247,11 +182,11 @@ public class CvPageController {
         a.setContentText(msg);
         a.showAndWait();
     }
-
-    private boolean confirm(String msg) {
-        Alert a = new Alert(Alert.AlertType.CONFIRMATION, msg, javafx.scene.control.ButtonType.YES, javafx.scene.control.ButtonType.NO);
-        a.setHeaderText(null);
-        a.showAndWait();
-        return a.getResult() == javafx.scene.control.ButtonType.YES;
-    }
+//
+//    private boolean confirm(String msg) {
+//        Alert a = new Alert(Alert.AlertType.CONFIRMATION, msg, javafx.scene.control.ButtonType.YES, javafx.scene.control.ButtonType.NO);
+//        a.setHeaderText(null);
+//        a.showAndWait();
+//        return a.getResult() == javafx.scene.control.ButtonType.YES;
+//    }
 }
