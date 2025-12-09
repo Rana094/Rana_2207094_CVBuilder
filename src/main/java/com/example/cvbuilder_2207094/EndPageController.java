@@ -56,6 +56,8 @@ public class EndPageController {
 
     @FXML
     private Label workLbl;
+    @FXML
+    private Button showRecordButton;
 
     @FXML
     void ExitBtn(MouseEvent event) {
@@ -64,11 +66,17 @@ public class EndPageController {
 
     }
     @FXML
-    void ShowRecords(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("records_view.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+   void ShowRecords(MouseEvent event) throws IOException {
+//        Parent root = FXMLLoader.load(getClass().getResource("records_view.fxml"));
+//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        stage.setScene(new Scene(root));
+//        stage.show();
+
+        Stage stage = (Stage) showRecordButton.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("records_view.fxml"));
+
+        Scene scene = new Scene(loader.load());
+        stage.setScene(scene);
 
     }
 
