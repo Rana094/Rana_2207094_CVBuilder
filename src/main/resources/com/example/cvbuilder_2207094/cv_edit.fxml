@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.cvbuilder_2207094.CVEditController">
+
+    <top>
+        <Label text="Edit CV"
+               style="-fx-font-size: 22px; -fx-padding: 16px;"
+               BorderPane.alignment="CENTER" />
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true">
+            <VBox spacing="8" style="-fx-padding: 12px;">
+                <GridPane hgap="10" vgap="8">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="20"/>
+                        <ColumnConstraints percentWidth="80"/>
+                    </columnConstraints>
+
+                    <Label text="Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="nameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Email:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="emailField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Phone (PK):" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField fx:id="phoneField" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+                    <Label text="Address:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                    <TextArea fx:id="addressArea" prefRowCount="2" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                    <Label text="Education (each line as exam|institute|board|session|result)" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                    <TextArea fx:id="educationArea" prefRowCount="4" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                    <Label text="Skills (one per line)" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+                    <TextArea fx:id="skillsArea" prefRowCount="3" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                    <Label text="Experience (role|org|duration|description)" GridPane.rowIndex="6" GridPane.columnIndex="0" />
+                    <TextArea fx:id="experienceArea" prefRowCount="4" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                    <Label text="Projects (title|description|link)" GridPane.rowIndex="7" GridPane.columnIndex="0" />
+                    <TextArea fx:id="projectsArea" prefRowCount="3" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+                </GridPane>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox spacing="12" alignment="CENTER" style="-fx-padding: 12px;">
+            <Button text="Update (Save)" onAction="#onUpdate" />
+            <Button text="Delete" onAction="#onDelete" />
+            <Button text="Back" onAction="#onBack" />
+        </HBox>
+    </bottom>
+
+</BorderPane>
