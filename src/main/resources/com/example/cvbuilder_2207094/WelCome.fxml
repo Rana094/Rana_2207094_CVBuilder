@@ -20,7 +20,7 @@
                   <Font size="27.0" />
                </font>
             </Text>
-            <Button layoutX="257.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#ShowRecords" text="Show CV Records" />
+            <Button fx:id="showRecordsButton" layoutX="257.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#ShowRecords" text="Show CV Records" />
          </children>
       </AnchorPane>
    </center>
